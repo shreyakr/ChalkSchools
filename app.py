@@ -7,10 +7,8 @@ from flask.ext.wtf import Form
 from wtforms.validators import DataRequired
 from wtforms import IntegerField, TextField, TextAreaField, SubmitField, RadioField
 
-#import mysql.connector
+import mysql.connector
 import json
-
-# BASED OFF OF http://code.tutsplus.com/tutorials/intro-to-flask-adding-a-contact-page--net-28982
 
 
 app = Flask(__name__)
@@ -18,9 +16,9 @@ app.secret_key = 'shreyakumar'
 
 conf = json.load(open ('./sql.conf','r'))
 
-#cnx = mysql.connector.connect(user=conf['user'], password=conf['password'],
-#                              host=conf['host'],
-#                              database=conf['database'])
+cnx = mysql.connector.connect(user=conf['user'], password=conf['password'],
+                              host=conf['host'],
+                              database=conf['database'])
 
 model = joblib.load('./height_weight_model/model.pkl')
 
@@ -78,8 +76,8 @@ def log_result():
 		save_response_data = (height, weight, pred, correct)
 
 
-		#cursor = cnx.cursor()
-		#cursor.execute(save_response_query, save_response_data)
+		cursor = cnx.cursor()
+		cursor.execute(save_response_query, save_response_data)
 
 		return render_template('thanks.html')
 
