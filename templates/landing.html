@@ -1,0 +1,29 @@
+{% extends "layout.html" %}
+ 
+{% block content %}
+  <center>
+    <h2> Enter your height and weight:</h2>
+
+    {% for message in get_flashed_messages() %}
+      <div class="flash">{{ message }}</div>
+    {% endfor %}
+    
+    <form action="{{ url_for('predict_gender') }}" method=post>
+      {{ form.hidden_tag() }}
+
+      {{ form.height.label }}
+      {{ form.height }}
+   
+      {{ form.weight.label }}
+      {{ form.weight }}
+
+      <div class="container">
+        {% block gender_box %}
+        {% endblock %}
+      </div>
+   
+      {{ form.submit }}
+    </form>
+
+  </center>
+{% endblock %}

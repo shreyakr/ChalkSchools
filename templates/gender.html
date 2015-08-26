@@ -1,0 +1,8 @@
+{% extends "landing.html" %}
+ 
+{% block gender_box %}
+  <center>
+    <h2> Predicted Gender: {{ gender }}</h2>
+      {{ gender_form.gender_confirm }}
+  </center>
+{% endblock %}

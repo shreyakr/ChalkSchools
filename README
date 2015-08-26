@@ -1,0 +1,22 @@
+1) Set up a virtual env, call it shreya_hw_g
+2) Activate shreya_hw_g
+3) pip install -r requirements.txt (apologies -- this requirements file contains more packages than is necessary)
+
+-- Now the dev environment is set up
+
+Analysis
+--------
+
+The analysis was done in iPython Notebook using scikit_learn to train a simple Logistic Regression model to the data. 
+The dataset was gotten from a publicly available height-weight-gender dataset used in the book Machine Learning for Hackers.
+
+To view the analysis:
+	ipython notebook HeightWeightAnalysis.ipynb
+
+
+App
+---
+
+To run the app, first kick off a MySQL daemon in the background and set the appropriate configs in sql.conf
+
+Then : python app.py and open the app on 127.0.0.1:5000
